@@ -1,0 +1,33 @@
+#!/bin/bash
+
+docker run \
+  --rm \
+  --detach \
+  --volume currency-conversion:/var/lib/mysql \
+  --net currency-conversion \
+  --name cc-mysql \
+  --add-host=host.docker.internal:host-gateway \
+  custom:mysql5.7.21
+
+docker run \
+  --volume ./site:/site \
+  --volume ./composer:/bin/composer \
+  --rm \
+  --detach \
+  --net currency-conversion \
+  --name cc-php \
+  --add-host=host.docker.internal:host-gateway \
+  --user 1000 \
+  custom:php8.2.5-fpm
+
+docker run \
+  --rm \
+  --detach \
+  --volume ./site:/site \
+  --volume ./docker/nginx:/etc/nginx \
+  --volume ./docker/log/nginx:/var/log/nginx \
+  --net currency-conversion \
+  --name cc-nginx \
+  --add-host=host.docker.internal:host-gateway \
+  --publish 80:80 \
+  nginx:1.12.1

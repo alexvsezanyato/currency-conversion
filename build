@@ -1,0 +1,9 @@
+#!/bin/bash
+
+docker network create --driver bridge currency-conversion
+docker volume create --driver local currency-conversion
+
+docker build --tag custom:php8.2.5-fpm ./docker/build/php8.2.5-fpm
+docker build --tag custom:mysql5.7.21 ./docker/build/mysql5.7.21
+
+cp ./.env ./site/.env
