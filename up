@@ -30,4 +30,4 @@ docker run \
   --name cc-nginx \
   --add-host=host.docker.internal:host-gateway \
   --publish 80:80 \
-  nginx:1.12.1
+  custom:nginx1.12.1
