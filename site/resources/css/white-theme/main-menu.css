@@ -1,0 +1,29 @@
+.main-menu .link {
+    color: #000;
+}
+
+.main-menu .link .link-text {
+    transition: background .1s;
+}
+
+.main-menu .link:hover .link-text {
+    /* background: hsla(220, 15%, 70%, .25); */
+    /* color: #555; */
+}
+
+.main-menu .link:active .link-text {
+    /* background: hsla(220, 15%, 70%, .4); */
+    /* color: #000; */
+}
+
+.main-menu .link-list .item:after {
+    background: rgba(0,0,0,0);
+}
+
+.main-menu .link-list .item:hover:after {
+    background: hsla(220, 15%, 70%, .5);
+}
+
+.main-menu .link-list .item:active:after {
+    background: hsla(220, 15%, 50%, .5);
+}

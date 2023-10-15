@@ -1,0 +1,46 @@
+header {
+    background: hsla(220, 17%, 5%, 1);
+}
+
+header .wrapper {
+    background: hsla(220, 17%, 12%, 1);
+    border-color: rgba(0, 0, 0, .15);
+}
+
+header > .wrapper > * {
+    background: hsla(220, 17%, 12%, .88);
+}
+
+header .general .icon:hover {
+    color: #fff;
+}
+
+header .general .dark-mode-icon {
+    color: hsla(200, 100%, 46%, 1);
+    background: hsla(200, 100%, 20%, 1);
+}
+
+header .dark-mode-icon:hover {
+    color: #fff;
+    background: #000;
+}
+
+header .general .phone-number {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+header .general .order-call {
+    background: hsla(200, 100%, 46%, 1);
+    color: #fff;
+}
+
+header .general .order-call:hover {
+    background: hsla(219, 2%, 2%, 1);
+    color: #fff;
+}
+
+header .general .phone-number {
+    border-bottom-color: #fff;
+    color: #fff;
+}

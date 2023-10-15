@@ -1,0 +1,37 @@
+.request-form {
+    background: #fff;
+}
+
+.request .form-title {
+    color: rgba(255,255,255, 1);
+    border-color: rgba(255,255,255, 1);
+}
+
+.request-form .input-list input {
+    border-bottom-color: hsla(220, 5%, 70%, .5);
+    /* background: rgba(255,255,255,.95); */
+}
+
+.request-form .input-list input:focus {
+    /* box-shadow: inset 0px 0px 0px 3px hsla(200, 100%, 46%, .3); */
+    /* border-bottom-color: hsla(200, 100%, 46%, .3); */
+}
+
+.request-form .submit-wrapper {
+    /* box-shadow: 0 -5px 10px hsla(220, 5%, 15%, .10); */
+}
+
+.request-form [type=submit] {
+    /* background: hsla(200, 100%, 43%, 1); */
+    background: hsla(200, 100%, 46%, 1);
+    color: #fff;
+}
+
+.request-form [type=submit]:hover {
+    background: hsla(219, 10%, 50%, 1);
+}
+
+.request-form [type=submit]:active {
+    background: hsla(219, 10%, 20%, 1);
+
+}

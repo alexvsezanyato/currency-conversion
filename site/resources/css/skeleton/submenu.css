@@ -1,0 +1,49 @@
+.submenu {
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.submenu::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+}
+
+.submenu .list {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.submenu .list .item {
+    margin-right: 5px;
+}
+
+.submenu .list .item .link.catalog i {
+    margin-right: 10px;
+}
+
+.submenu .list .item .link.catalog {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.submenu .list .item .link {
+    /* border-radius: 6px; */
+    border-radius: 50px;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    white-space: nowrap;
+
+    display: block;
+    border: 1px solid;
+
+    transition: background .1s, color .1s;
+}

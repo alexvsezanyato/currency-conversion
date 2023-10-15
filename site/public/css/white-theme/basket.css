@@ -1,0 +1,51 @@
+.basket-content .no-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.basket-content .no-product .icon {
+    margin-bottom: 5px;
+    font-size: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.basket-content .no-product .icon .count {
+    position: absolute;
+    top: -10px;
+    font-size: 13px;
+    font-weight: 600;
+    /* background: hsla(200, 100%, 46%, 1); */
+    background: #000;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basket-content .no-product .text {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.basket-content .state.success .text {
+    color: hsla(140, 100%, 10%, 1);
+    background: hsla(140, 100%, 30%, .25);
+}
+
+.basket-content .state.error .text {
+    color: hsla(8, 100%, 40%, 1);
+    background: hsla(8, 100%, 60%, .25);
+}

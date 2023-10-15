@@ -1,0 +1,109 @@
+.breadcrumb {
+    padding: 5px;
+}
+
+.breadcrumb .item {
+    color: hsla(220, 10%, 38%, 1);
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-delimiter {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 9px;
+    /* color: #0652dd; */
+}
+
+.breadcrumb a {
+    color: hsla(220, 10%, 60%, 1);
+    text-decoration: none;
+}
+
+.footer {
+    /* border: 1px solid #000; */
+}
+
+.footer .right .order-call {
+    font-size: 13px;
+}
+
+.footer .wrapper .top {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+body {
+    background: hsla(220, 17%, 5%, 1);
+    /* background: hsla(220, 17%, 15%, 1); */
+    color: #fff;
+}
+
+header {
+    background: hsla(220, 17%, 5%, 1);
+}
+
+header .wrapper {
+    background: hsla(220, 17%, 12%, 1);
+    border-color: rgba(0, 0, 0, .15);
+}
+
+header > .wrapper > * {
+    background: hsla(220, 17%, 12%, .88);
+}
+
+header .general .icon:hover {
+    color: #fff;
+}
+
+header .general .dark-mode-icon {
+    color: hsla(200, 100%, 46%, 1);
+    background: hsla(200, 100%, 20%, 1);
+}
+
+header .dark-mode-icon:hover {
+    color: #fff;
+    background: #000;
+}
+
+header .general .phone-number {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+header .general .order-call {
+    background: hsla(200, 100%, 46%, 1);
+    color: #fff;
+}
+
+header .general .order-call:hover {
+    background: hsla(219, 2%, 2%, 1);
+    color: #fff;
+}
+
+header .general .phone-number {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.main-menu .link {
+    color: #fff;
+}
+
+.main-menu .item .link:hover {
+    hsla(220, 15%, 20%, .5)
+}
+
+.submenu .list .item .link {
+    background: hsla(220, 17%, 20%, .5);
+    color: #fff;
+    border-color: rgba(0, 0, 0, .15);
+}
+
+.submenu .list .item .link:hover {
+    background: hsla(220, 30%, 90%, 1);
+    color: #000;
+}
+
+.submenu .list .item .catalog.link {
+    background: hsla(140, 100%, 29%, 1);
+}

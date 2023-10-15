@@ -1,0 +1,21 @@
+{
+    "/css/skeleton.css": "/css/skeleton.css",
+    "/css/white-theme.css": "/css/white-theme.css",
+    "/css/dark-theme.css": "/css/dark-theme.css",
+    "/css/skeleton/basket.css": "/css/skeleton/basket.css",
+    "/css/skeleton/contacts.css": "/css/skeleton/contacts.css",
+    "/css/skeleton/landing.css": "/css/skeleton/landing.css",
+    "/css/skeleton/main.css": "/css/skeleton/main.css",
+    "/css/skeleton/ordering.css": "/css/skeleton/ordering.css",
+    "/css/skeleton/plain-request-form.css": "/css/skeleton/plain-request-form.css",
+    "/css/skeleton/products.css": "/css/skeleton/products.css",
+    "/css/white-theme/basket.css": "/css/white-theme/basket.css",
+    "/css/white-theme/contacts.css": "/css/white-theme/contacts.css",
+    "/css/white-theme/main.css": "/css/white-theme/main.css",
+    "/css/white-theme/ordering.css": "/css/white-theme/ordering.css",
+    "/css/white-theme/plain-request-form.css": "/css/white-theme/plain-request-form.css",
+    "/css/white-theme/products.css": "/css/white-theme/products.css",
+    "/css/dark-theme/contacts.css": "/css/dark-theme/contacts.css",
+    "/css/dark-theme/main.css": "/css/dark-theme/main.css",
+    "/css/dark-theme/plain-request-form.css": "/css/dark-theme/plain-request-form.css"
+}

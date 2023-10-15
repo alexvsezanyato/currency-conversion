@@ -1,0 +1,21 @@
+.request-form .input-list {
+    border-color: hsla(220, 17%, 22%, 1);
+}
+
+.request-form .input-list input {
+    background: hsla(220, 17%, 12%, 1);
+    border-top-color: hsla(220, 17%, 22%, 1);
+    color: #fff;
+}
+
+.request-form [type=submit] {
+    border-color: hsla(200, 84%, 44%, 1);
+    background: hsla(200, 84%, 44%, 1);
+}
+
+.request-form [type=submit]:hover {
+    /* background: #000; */
+    /* border-color: #000; */
+    background: hsla(200, 84%, 20%, 1);
+    border-color: hsla(200, 84%, 20%, 1);
+}

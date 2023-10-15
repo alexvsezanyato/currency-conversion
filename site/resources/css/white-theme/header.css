@@ -1,0 +1,80 @@
+header .wrapper {
+    background: rgba(255, 255, 255, .9);
+    border-color: hsla(220, 15%, 70%, .45);
+    backdrop-filter: saturate(180%) blur(5px);
+    /* box-shadow: 0 -20px 0 var(--main-background-color); */
+}
+
+header .general {
+    border-bottom-color: hsla(220, 15%, 70%, .5);
+}
+
+header .logo-link:hover .logo {
+    opacity: .9;
+}
+
+header .logo-link:active .logo {
+    opacity: .8;
+}
+
+header .general .dark-mode-icon {
+    color: #000;
+    background: hsla(220, 15%, 70%, .35);
+}
+
+header .general .dark-mode-icon:hover {
+    background: hsla(219, 10%, 50%, 1);
+    color: #fff;
+}
+
+header .general .dark-mode-icon:active {
+    background: hsla(219, 10%, 20%, 1);
+}
+
+header .general .order-call {
+    background: hsla(200, 100%, 46%, 1);
+    color: #fff;
+}
+
+header .general .order-call:hover {
+    background: hsla(219, 10%, 50%, 1);
+    color: #fff;
+}
+
+header .general .order-call:active {
+    background: hsla(219, 10%, 20%, 1);
+    color: #fff;
+}
+
+header .general .phone-number {
+    border-bottom-color: #000;
+    color: #000;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: .1s background;
+}
+
+header .general .phone-number:hover {
+    background: hsla(220, 15%, 70%, .5);
+}
+
+header .general .phone-number:active {
+    background: hsla(220, 15%, 50%, .5);
+}
+
+header .general .contact-icon:hover {
+    color: hsla(219, 10%, 50%, 1);
+    /* background: hsla(219, 20%, 40%, .15); */
+}
+
+header .general .contact-icon:active {
+    color: hsla(219, 10%, 20%, 1);
+    /* background: hsla(219, 20%, 40%, .15); */
+}
+
+.no-product .icon {
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+}

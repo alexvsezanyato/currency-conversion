@@ -1,0 +1,24 @@
+.contacts .item {
+    border-color: hsla(200, 5%, 95%, 1);
+    background: #fff;
+}
+
+.contacts a {
+    color: #000;
+}
+
+.contacts .description-item .icon {
+    color: #0652DD;
+    background: #ddd;
+    background: rgb(2%, 32%, 87%, .15);
+    /* background: hsla(219, 35%, 70%, .3); */
+}
+
+.contacts .cards {
+    background: hsla(219, 95%, 95%, .8);
+    border-color: hsla(220, 15%, 70%, .2);
+}
+
+.contacts .description-title {
+    border-bottom-color: hsla(220, 25%, 84%, 1);
+}
