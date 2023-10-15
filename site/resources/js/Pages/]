@@ -1,0 +1,28 @@
+<script setup>
+import { Head, Link } from '@inertiajs/vue3';
+import AlternativeLayout from '@/Layouts/AlternativeLayout.vue';
+
+defineProps({
+    canLogin: Boolean,
+    canRegister: Boolean,
+    laravelVersion: String,
+    phpVersion: String,
+    currencies: Array,
+});
+</script>
+
+<template>
+    <AlternativeLayout
+        title="Home page"
+        canLogin="canLogin"
+        canRegister="canRegister"
+        h1="Курс рубля"
+    >
+        <ul class="currency-list">
+            <li class="item" v-for="currency in currencies">
+                <div class="code">{{ currency.code }}</div>
+                <div class="text">1 рубль стоит {{ currency.value }} {{ currency.name }}</div>
+            </li>
+        </ul>
+    </AlternativeLayout>
+</template>

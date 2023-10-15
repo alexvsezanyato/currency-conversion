@@ -6,9 +6,12 @@
 
         <title inertia>{{ config('app.name', 'Currency converter') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="{{ asset('/fontawesome/css/all.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('/css/skeleton.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/skeleton/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/white-theme/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/white-theme.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
         @routes

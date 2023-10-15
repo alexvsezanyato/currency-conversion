@@ -43,16 +43,15 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-body {
+#app {
     display: flex;
     justify-content: center;
     padding: 0;
     margin: 0;
-    overflow-y: scroll;
     /* background: #fff!important; */
 }
 
-body > .wrapper {
+#app > .wrapper {
     max-width: var(--content-max-width);
     width: 100%;
     padding: 5px;
@@ -62,21 +61,18 @@ body > .wrapper {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
 
-body > .wrapper {
     padding: 5px;
     padding-top: 100px;
 }
 
-body > .wrapper > .top {
+#app > .wrapper > .top {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
 }
-
 
 .content {
     width: 100%;

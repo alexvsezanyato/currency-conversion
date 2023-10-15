@@ -16,12 +16,23 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    $currenciesPath = base_path() . "/currencies.json";
+
+    $currencies = [];
+
+    if (file_exists($currenciesPath)) {
+        $currencies = json_decode(
+            file_get_contents($currenciesPath)
+        );
+    }
+
     return Inertia::render('Main', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'title' => "Test",
+        'title' => "Конвертер валют",
+        'currencies' => $currencies,
     ]);
 });
 

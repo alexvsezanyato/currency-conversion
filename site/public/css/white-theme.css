@@ -14,7 +14,7 @@ footer .main-menu .link {
     --main-background-color: hsl(0, 0%, 98%);
 }
 
-body {
+#app {
     background: var(--main-background-color);
 }
 

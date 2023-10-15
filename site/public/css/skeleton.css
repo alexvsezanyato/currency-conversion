@@ -341,16 +341,15 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-body {
+#app {
     display: flex;
     justify-content: center;
     padding: 0;
     margin: 0;
-    overflow-y: scroll;
     /* background: #fff!important; */
 }
 
-body > .wrapper {
+#app > .wrapper {
     max-width: var(--content-max-width);
     width: 100%;
     padding: 5px;
@@ -360,21 +359,18 @@ body > .wrapper {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
 
-body > .wrapper {
     padding: 5px;
     padding-top: 100px;
 }
 
-body > .wrapper > .top {
+#app > .wrapper > .top {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
 }
-
 
 .content {
     width: 100%;
@@ -389,6 +385,8 @@ body > .wrapper > .top {
 }
 
 header {
+    z-index: 100;
+
     top: 0;
     position: fixed;
     width: 100%;
@@ -744,7 +742,7 @@ header .general .phone {
 .submenu .list .item .link {
     /* border-radius: 6px; */
     border-radius: 50px;
-    padding: 8px 12px;
+    padding: 5px 12px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 900;
