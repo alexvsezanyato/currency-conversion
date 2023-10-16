@@ -2,6 +2,12 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\AuthController;
+
 use Inertia\Inertia;
 
 /*
@@ -15,33 +21,13 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    $currenciesPath = base_path() . "/currencies.json";
-
-    $currencies = [];
-
-    if (file_exists($currenciesPath)) {
-        $currencies = json_decode(
-            file_get_contents($currenciesPath)
-        );
-    }
-
-    return Inertia::render('Main', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-        'title' => "Конвертер валют",
-        'currencies' => $currencies,
-    ]);
-});
+Route::get('/', [PageController::class, "index"])->name("main");
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/conversion', [PageController::class, "conversion"])->name('conversion');
+    Route::get('/logout', [AuthController::class, "logout"])->name('logout');
 });

@@ -14,7 +14,7 @@ defineProps({
 
 <template>
     <AppLayout
-        title="Курс рубля"
+        title="Конвертер валют"
         :canLogin="canLogin"
         :canRegister="canRegister"
     >
