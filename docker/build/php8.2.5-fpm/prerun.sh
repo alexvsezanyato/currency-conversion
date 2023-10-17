@@ -1,6 +1,8 @@
 apt clear
 apt update
 
+apt install -y vim 
+apt install -y cron
 apt install -y libonig-dev
 apt install -y url
 apt install -y unzip
