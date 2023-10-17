@@ -16,6 +16,11 @@
     <li>cd site</li>
     <li>npm install</li>
     <li>npm run build</li>
+    <li>exit</li>
+    <li>docker exec -it cc-php /site/artisan rate:pull</li>
+    <li>Или 1. docker exec -it cc-php 2. artisan rate:pull</li>
+    <li>* * * * * docker exec cc-php /site/artisan rate:pull</li>
+    <li>Cron в контейнере не запускает задачу, пока не знаю почему</li>
 </ul>
 
 Сайт доступен по 80 порту (http://localhost:80/)
@@ -36,11 +41,6 @@
     <li>composer install</li>
     <li>npm install</li>
     <li>npm run build</li>
-    <li>exit</li>
-    <li>docker exec -it cc-php /site/artisan rate:pull</li>
-    <li>Или 1. docker exec -it cc-php 2. artisan rate:pull</li>
-    <li>* * * * * docker exec cc-php /site/artisan rate:pull</li>
-    <li>Cron в контейнере не запускает задачу, пока не знаю почему</li>
 </ul>
 
 Сайт доступен по 80 порту (http://localhost:80/)
