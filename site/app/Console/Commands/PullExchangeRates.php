@@ -11,7 +11,7 @@ class PullExchangeRates extends Command
      *
      * @var string
      */
-    protected $signature = 'app:pull-exchange-rates';
+    protected $signature = 'rate:pull';
 
     /**
      * The console command description.
@@ -30,6 +30,12 @@ class PullExchangeRates extends Command
         );
 
         $currencyRate = [];
+
+        $currencyRate["RUB"] = [
+            "name" => "Российский рубль",
+            "value" => "1",
+            "code" => "RUB",
+        ];
 
         foreach ($currencyXML as $currency) {
             $charCode = (string) $currency->CharCode;

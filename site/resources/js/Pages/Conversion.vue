@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import CurrencyList from '@/Components/CurrencyList.vue'
+import CurrencyConverter from '@/Components/CurrencyConverter.vue'
 
 defineProps({
     canLogin: Boolean,
@@ -18,6 +18,6 @@ defineProps({
         :canLogin="canLogin"
         :canRegister="canRegister"
     >
-        <CurrencyList :currencies="currencies" />
+        <CurrencyConverter :currencies="currencies" />
     </AppLayout>
 </template>
