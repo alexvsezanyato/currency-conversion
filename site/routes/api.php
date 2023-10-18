@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ConversionController;
+use App\Http\Controllers\ExchangeRateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +24,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/convert/{amount}/{from}/{to}', [ConversionController::class, "convert"]);
+    Route::get('/convert/{amount}/{from}/{to}', [
+        ExchangeRateController::class,
+        "convert"
+    ]);
+
+    Route::get('/exchange-rate/get', [
+        ExchangeRateController::class,
+        "get"
+    ]);
 });
