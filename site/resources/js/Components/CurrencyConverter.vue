@@ -3,7 +3,6 @@
         name : 'x-add-information',
 
         props: {
-            currencies: Object,
         },
 
         data() {
@@ -15,10 +14,33 @@
                 targetValue: 0,
 
                 targetOutputValue: 0,
+
+                exchangeRates: [],
+                rateCodeIndex: new Map,
             }
         },
 
+        async mounted() {
+            this.updateLastRates()
+        },
+
         methods: {
+            async getLastRates() {
+                const response = await fetch("/api/exchange-rate/get")
+                const exchangeRates = await response.json()
+
+                return exchangeRates
+            },
+
+            async updateLastRates() {
+                this.exchangeRates = await this.getLastRates()
+                this.exchangeRates.map(e => this.rateCodeIndex.set(e.code, e));
+            },
+
+            updateCache(event) {
+                this.updateLastRates()
+            },
+
             onSubmit(e) {
                 return "onSubmit"
             },
@@ -34,8 +56,8 @@
             updateSourceValue(event) {
                 this.sourceValue = event.target.value
 
-                const sourceValue = parseFloat(this.currencies[this.sourceCode].value.replace(`,`, `.`))
-                const targetValue = parseFloat(this.currencies[this.targetCode].value.replace(`,`, `.`))
+                const sourceValue = this.rateCodeIndex.get(this.sourceCode).value
+                const targetValue = this.rateCodeIndex.get(this.targetCode).value
 
                 const amount = this.sourceValue
                 this.targetOutputValue = (sourceValue / targetValue) * amount
@@ -54,14 +76,14 @@
     <div class="currency-converter">
         <div class="input">
             <select @change="updateSourceCode" class="item" name="from">
-                <template v-for="currency in currencies">
-                    <option>{{ currency.code }}</option>
+                <template v-for="currency in exchangeRates">
+                    <option :value="currency.code">{{ currency.code }}</option>
                 </template>
             </select>
 
             <select @change="updateTargetCode" class="item" name="to">
-                <template v-for="currency in currencies">
-                    <option>{{ currency.code }}</option>
+                <template v-for="currency in exchangeRates">
+                    <option :value="currency.code">{{ currency.code }}</option>
                 </template>
             </select>
         </div>
@@ -71,10 +93,10 @@
             <input class="item" type="text" name="amount" :value="targetOutputValue" disabled placeholder="0">
         </div>
 
-        <button class="update-cache-btn" @click="updateCache">Обновить кеш</button>
+        <button class="update-cache-btn" @click="updateCache">Синхронизировать с сервером</button>
     </div>
 
-    <span>Значения кешируются, для синхронизации обновите страницу</span>
+    <span>База данных обновляется раз в день</span>
 </template>
 
 <style scoped>

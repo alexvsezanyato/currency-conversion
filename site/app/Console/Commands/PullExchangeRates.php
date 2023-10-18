@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\ExchangeRate;
+use Carbon\Carbon;
 
 class PullExchangeRates extends Command
 {
@@ -25,33 +27,40 @@ class PullExchangeRates extends Command
      */
     public function handle()
     {
-        $currencyXML = simplexml_load_string(
-            file_get_contents("http://www.cbr.ru/scripts/XML_daily.asp")
-        );
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request("GET", "http://www.cbr.ru/scripts/XML_daily.asp");
+        $xml = simplexml_load_string($response->getBody());
 
-        $currencyRate = [];
+        $currencies = [];
 
-        $currencyRate["RUB"] = [
+        $currencies["RUB"] = [
+            "code" => "RUB",
             "name" => "Российский рубль",
             "value" => "1",
-            "code" => "RUB",
+
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
         ];
 
-        foreach ($currencyXML as $currency) {
-            $charCode = (string) $currency->CharCode;
+        foreach ($xml as $currency) {
+            $code = (string) $currency->CharCode;
+            $value = str_replace(",", ".", (string) $currency->VunitRate);
+            $name = (string) $currency->Name;
 
-            $currencyRate[$charCode] = [
-                "name" => (string) $currency->Name,
-                "value" => (string) $currency->VunitRate,
-                "code" => $charCode,
+            $currencies[$code] = [
+                "code" => $code,
+                "name" => $name,
+                "value" => $value,
+
+                "created_at" => Carbon::now(),
+                "updated_at" => Carbon::now(),
             ];
         }
 
-        $basePath = base_path();
+        if (false) foreach ($currencies as $currency) {
+            ExchangeRate::create($currency);
+        }
 
-        file_put_contents(
-            "$basePath/currencies.json",
-            json_encode($currencyRate)
-        );
+        ExchangeRate::insert($currencies);
     }
 }

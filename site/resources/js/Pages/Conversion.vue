@@ -8,7 +8,6 @@ defineProps({
     canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String,
-    currencies: Object,
 });
 </script>
 
@@ -18,6 +17,6 @@ defineProps({
         :canLogin="canLogin"
         :canRegister="canRegister"
     >
-        <CurrencyConverter :currencies="currencies" />
+        <CurrencyConverter />
     </AppLayout>
 </template>
