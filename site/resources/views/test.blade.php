@@ -1,7 +1,7 @@
 <html>
     <body>
         <script>
-            fetch("/api/convert/100/KZT/RUB/", {
+            fetch("/api/exchange-rate/latest/KZT-RUB/10", {
                 withCredentials: true
             }).then(async response => {
                 console.log(await response.text())

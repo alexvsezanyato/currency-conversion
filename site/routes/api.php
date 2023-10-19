@@ -33,4 +33,9 @@ Route::middleware([
         ExchangeRateController::class,
         "get"
     ]);
+
+    Route::get('/exchange-rate/latest/{codes}/{count}', [
+        ExchangeRateController::class,
+        "latest"
+    ]);
 });

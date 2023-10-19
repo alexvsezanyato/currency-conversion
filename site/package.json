@@ -29,5 +29,9 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "highcharts": "^11.1.0",
+        "highcharts-vue": "^1.4.3"
+    }
 }

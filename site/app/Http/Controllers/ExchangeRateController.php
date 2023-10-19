@@ -21,4 +21,13 @@ class ExchangeRateController extends Controller
         $exchangeRates = ExchangeRate\Get::run();
         return response()->json($exchangeRates);
     }
+
+    public function latest(string $codes, int $count) {
+        if ($count > 100) $count = 100;
+        $codes = explode("-", $codes);
+
+        $latest = ExchangeRate\Latest::run($codes, $count);
+
+        return response()->json($latest);
+    }
 }

@@ -3,17 +3,17 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\ExchangeRate;
 use Carbon\Carbon;
+use App\Models\ExchangeRate;
 
-class PullExchangeRates extends Command
+class InitExchangeRates extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'rate:pull';
+    protected $signature = 'rate:init';
 
     /**
      * The console command description.
@@ -24,39 +24,7 @@ class PullExchangeRates extends Command
 
     protected $dateFormat = "YYYY-MM-DD";
 
-    private function getFromRussianCB() {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request("GET", "http://www.cbr.ru/scripts/XML_daily.asp");
-        $xml = simplexml_load_string($response->getBody());
-
-        $currencies = [];
-
-        $currencies["RUB"] = [
-            "code" => "RUB",
-            "name" => "Российский рубль",
-            "value" => "1",
-
-            "date" => Carbon::now()->isoFormat($this->dateFormat),
-        ];
-
-        foreach ($xml as $currency) {
-            $code = (string) $currency->CharCode;
-            $value = str_replace(",", ".", (string) $currency->VunitRate);
-            $name = (string) $currency->Name;
-
-            $currencies[$code] = [
-                "code" => $code,
-                "name" => $name,
-                "value" => $value,
-
-                "date" => (string) Carbon::now()->isoFormat($this->dateFormat),
-            ];
-        }
-
-        return $currencies;
-    }
-
-    private function getFromThailandCB() {
+    private function getRatesFor($date) {
         $client = new \GuzzleHttp\Client();
 
         $uri = "https://apigw1.bot.or.th/bot/public/Stat-ExchangeRate/v2/DAILY_AVG_EXG_RATE/";
@@ -64,10 +32,6 @@ class PullExchangeRates extends Command
         $headers = [
             "X-IBM-Client-Id" => "c2bbe063-d0ff-456c-bc08-fbd5115fb340",
         ];
-
-        $dateFormat = "YYYY-MM-DD";
-
-        $date = Carbon::now()->addDays(-1)->isoFormat($dateFormat);
 
         $query = [
             "start_period" => $date,
@@ -92,7 +56,7 @@ class PullExchangeRates extends Command
                 "name" => $name,
                 "value" => $value,
 
-                "date" => (string) Carbon::now()->isoFormat($this->dateFormat),
+                "date" => $date,
             ];
         }
 
@@ -107,7 +71,6 @@ class PullExchangeRates extends Command
         }
 
         unset($currency);
-        unset($currencies["RUB"]);
 
         return $currencies;
     }
@@ -117,11 +80,17 @@ class PullExchangeRates extends Command
      */
     public function handle()
     {
-        $currencies = [];
+        $dateCount = 0;
 
-        $currencies += $this->getFromRussianCB();
-        $currencies += $this->getFromThailandCB();
+        for ($i = 0 + 1; true; $i++) {
+            $date = Carbon::now()->addDays(-$i)->isoFormat("YYYY-MM-DD");
+            $currencies = $this->getRatesFor($date);
+            if ($currencies) $dateCount++;
 
-        ExchangeRate::upsert($currencies, ['date', 'code'], ['value']);
+            if ($dateCount > 10 + 1) break;
+            if ($i > 30) break;
+
+            ExchangeRate::upsert($currencies, ['date', 'code'], ['value']);
+        }
     }
 }

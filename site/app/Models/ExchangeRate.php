@@ -9,5 +9,7 @@ class ExchangeRate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code', 'name', 'value', 'created_at', 'updated_at'];
+    public $timestamps = false;
+
+    protected $fillable = ['code', 'name', 'value', 'date'];
 }

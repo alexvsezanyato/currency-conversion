@@ -30,4 +30,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/conversion', [PageController::class, "conversion"])->name('conversion');
     Route::get('/logout', [AuthController::class, "logout"])->name('logout');
+
+    Route::get('/test', function() {
+        return view("test");
+    });
 });
