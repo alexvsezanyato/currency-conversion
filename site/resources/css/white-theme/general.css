@@ -1,7 +1,0 @@
-:root {
-    --main-background-color: hsl(0, 0%, 98%);
-}
-
-#app {
-    background: var(--main-background-color);
-}

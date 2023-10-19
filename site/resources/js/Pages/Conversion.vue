@@ -12,11 +12,7 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout
-        title="Конвертер валют"
-        :canLogin="canLogin"
-        :canRegister="canRegister"
-    >
+    <AppLayout title="Конвертер валют">
         <CurrencyConverter />
     </AppLayout>
 </template>

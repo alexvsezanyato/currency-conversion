@@ -31,6 +31,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@inertiajs/inertia-vue3": "^0.6.0",
         "highcharts": "^11.1.0",
         "highcharts-vue": "^1.4.3"
     }

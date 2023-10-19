@@ -170,18 +170,14 @@
         </div>
     </div>
 
-    <highcharts :options="chartOptions" class="chart" />
+    <Highcharts :options="chartOptions" class="chart" />
 </template>
 
 <style scoped>
-    .chart {
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid hsla(220, 15%, 70%, .6);
-        min-height: 300px;
-    }
-
     .currency-converter {
+        --row-height: 44px;
+        --row-padding: 0 14px;
+
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -194,33 +190,46 @@
         gap: 10px;
     }
 
-    .currency-converter .bottom {
+    .chart {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid hsla(220, 15%, 70%, .6);
+        min-height: 300px;
+    }
+
+    .bottom {
         display: flex;
         justify-content: space-between;
-        padding-top: 5px;
-        padding-bottom: 30px;
+        padding: 20px 0;
         align-items: center;
     }
 
-    .currency-converter .input .item {
+    .input .item {
         width: 50%;
         border: 1px solid hsla(220, 15%, 70%, .6);
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
+        height: var(--row-height);
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        padding: var(--row-padding);
     }
 
-    .currency-converter .output .item {
+    .output .item {
         width: 50%;
         border: 1px solid hsla(220, 15%, 70%, .6);
         border-top: none;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
+        height: var(--row-height);
+        padding: var(--row-padding);
     }
 
-    .currency-converter .update-cache-btn {
+    .update-cache-btn {
         padding: 8px 20px;
-        background: hsla(200, 100%, 46%, 1);
-        border-radius: 50px;
+        background: hsla(200, 100%, 5%, 1);
+        border-radius: 10px;
         color: #fff;
         font-weight: 900;
         width: fit-content;
@@ -230,14 +239,14 @@
     }
 
     @media screen and (max-width: 576px) {
-        .currency-converter .bottom {
+        .bottom {
             flex-direction: column-reverse;
-            align-items: flex-end;
+            align-items: center;
+            margin-top: 15px;
         }
 
-        .currency-converter .info {
+        .info {
             align-self: center;
-            padding: 20px 0;
         }
     }
 </style>
