@@ -9,7 +9,7 @@
     <li>./up</li>
     <li>docker exec -it cc-php bash</li>
     <li>composer install</li>
-    <li>Ждём пока mysql инициализирует свои данные</li>
+    <li>Ждём пока mysql инициализирует свои данные (до завершения будет ошибка при миграции)</li>
     <li>php artisan migrate</li>
     <li>exit</li>
     <li>./node</li>
@@ -18,9 +18,9 @@
     <li>npm run build</li>
     <li>exit</li>
     <li>docker exec -it cc-php /site/artisan rate:pull</li>
-    <li>Или 1. docker exec -it cc-php 2. artisan rate:pull</li>
-    <li>* * * * * docker exec cc-php /site/artisan rate:pull</li>
-    <li>Cron в контейнере не запускает задачу, пока не знаю почему</li>
+    <li>crontab -e (на хосте должен быть установлен cron)</li>
+    <li>0 0 * * * docker exec cc-php /site/artisan rate:pull (каждый день)</li>
+    <li>Приложение готово к работе</li>
 </ul>
 
 Сайт доступен по 80 порту (http://localhost:80/)
