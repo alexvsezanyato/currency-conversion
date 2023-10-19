@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ ! -f ./site/.env ]; then
+    echo "Error: site/.env does not exist"
+    echo "You can create it using cp ./env ./site/.env"
+
+    exit 1
+fi
+
 docker run \
   --rm \
   --detach \
@@ -11,7 +18,6 @@ docker run \
 
 docker run \
   --volume ./site:/site \
-  --volume ./composer:/bin/composer \
   --rm \
   --detach \
   --net currency-conversion \
@@ -24,8 +30,8 @@ docker run \
   --rm \
   --detach \
   --volume ./site:/site \
-  --volume ./docker/nginx:/etc/nginx \
-  --volume ./docker/log/nginx:/var/log/nginx \
+  --volume ./volumes/nginx:/etc/nginx \
+  --volume ./volumes/log/nginx:/var/log/nginx \
   --net currency-conversion \
   --name cc-nginx \
   --add-host=host.docker.internal:host-gateway \

@@ -9,6 +9,8 @@ ARG GID=1000
 ENV UID=${UID}
 ENV GID=${GID}
 
+COPY composer /bin/composer
+
 COPY prerun.sh /tmp/prerun.sh
 RUN /tmp/prerun.sh && rm /tmp/prerun.sh
 

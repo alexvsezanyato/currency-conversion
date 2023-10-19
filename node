@@ -10,4 +10,4 @@ docker run \
   --publish 5173:5173 \
   --add-host=host.docker.internal:host-gateway \
   --name cc-node \
-  node bash
+  custom:node20.8.1 bash

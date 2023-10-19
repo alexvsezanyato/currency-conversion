@@ -1,10 +1,16 @@
 #!/bin/bash
 
+if [ ! -f ./site/.env ]; then
+    echo "Error: site/.env does not exist"
+    echo "You can create it using cp ./env ./site/.env"
+
+    exit 1
+fi
+
 docker network create --driver bridge currency-conversion
 docker volume create --driver local currency-conversion
 
-docker build --tag custom:php8.2.5-fpm ./docker/build/php8.2.5-fpm
-docker build --tag custom:mysql5.7.21 ./docker/build/mysql5.7.21
-docker build --tag custom:nginx1.12.1 ./docker/build/nginx1.12.1
-
-cp ./.env ./site/.env
+docker build --tag custom:php8.2.5-fpm ./docker/php8.2.5-fpm
+docker build --tag custom:mysql5.7.21 ./docker/mysql5.7.21
+docker build --tag custom:nginx1.12.1 ./docker/nginx1.12.1
+docker build --tag custom:node20.8.1 ./docker/node20.8.1
