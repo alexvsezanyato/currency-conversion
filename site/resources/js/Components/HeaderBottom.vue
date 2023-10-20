@@ -16,7 +16,7 @@
                 <template v-else>
                     <div class="item"><Link class="link" :href="route('login')"><span class="link-text">Войти</span></Link></div>
 
-                    <div class="item"><Link class="link" v-if="canRegister" :href="route('register')"><span class="link-text">Зарегистрироваться</span></Link></div>
+                    <div v-if="$page.props.canRegister" class="item"><Link class="link" :href="route('register')"><span class="link-text">Зарегистрироваться</span></Link></div>
                 </template>
             </template>
         </div>
