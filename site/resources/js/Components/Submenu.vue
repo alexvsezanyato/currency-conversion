@@ -16,7 +16,9 @@
 <style scoped>
     .submenu {
         width: 100%;
-        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
         overflow-x: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
