@@ -3,6 +3,7 @@
 <ul>
     <li>Задаем подключение к будущей БД в docker/build/mysql5.7.21/Dockerfile</li>
     <li>Можно не задавать, по умолчанию все работает</li>
+    <li>Создаем site/.env, можно сделать cp .env site, в этом .env подключение к БД по умолчанию</li>
     <li>./build</li>
     <li>Задаем подключение к БД в site/.env</li>
     <li>Можно не задавать, по умолчанию все работает</li>
@@ -13,11 +14,11 @@
     <li>php artisan migrate</li>
     <li>exit</li>
     <li>./node</li>
-    <li>cd site</li>
     <li>npm install</li>
     <li>npm run build</li>
     <li>exit</li>
     <li>docker exec -it cc-php /site/artisan rate:init (получаем данные за последние 10 дней)</li>
+    <li>docker exec -it cc-php /site/artisan rate:pull</li>
     <li>crontab -e (на хосте должен быть установлен cron)</li>
     <li>0 0 * * * docker exec cc-php /site/artisan rate:pull (каждый день)</li>
     <li>Приложение готово к работе</li>
