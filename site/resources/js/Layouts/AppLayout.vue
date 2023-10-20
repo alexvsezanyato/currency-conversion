@@ -23,7 +23,7 @@ const props = defineProps({
 
     <div class="wrapper">
         <div class="top">
-            <Header :canLogin="canLogin" :canRegister="canRegister" />
+            <Header />
 
             <Submenu class="submenu" />
             <Banner image="/images/calculation.webp" class="top-banner">{{ title }}</Banner>

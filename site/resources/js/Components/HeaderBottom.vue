@@ -1,3 +1,7 @@
+<script setup>
+    import { Link } from '@inertiajs/vue3';
+</script>
+
 <template>
     <div class="row main-menu">
         <div class="link-list">
