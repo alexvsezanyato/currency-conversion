@@ -18,6 +18,7 @@
     <li>npm run build</li>
     <li>exit</li>
     <li>docker exec -it cc-php /site/artisan rate:init (получаем данные за последние 10 дней)</li>
+    <li>sudo docker exec -it cc-php /site/artisan rate:pull</li>
     <li>crontab -e (на хосте должен быть установлен cron)</li>
     <li>0 0 * * * docker exec cc-php /site/artisan rate:pull (каждый день)</li>
     <li>Приложение готово к работе</li>
