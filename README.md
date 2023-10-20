@@ -14,7 +14,6 @@
     <li>php artisan migrate</li>
     <li>exit</li>
     <li>./node</li>
-    <li>cd site</li>
     <li>npm install</li>
     <li>npm run build</li>
     <li>exit</li>
