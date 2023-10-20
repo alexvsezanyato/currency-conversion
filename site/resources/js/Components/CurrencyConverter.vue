@@ -1,13 +1,14 @@
 <script>
-    import Currency from "@/Services/Currency.ts"
-    import Highcharts from 'highcharts-vue'
+    import CurrencyChart from "@/Components/CurrencyChart.vue"
 
     export default {
-        props: {
+        components: {
+            CurrencyChart,
         },
-
         data() {
             return {
+                chartSeries: [],
+
                 sourceCode: "RUB",
                 targetCode: "RUB",
 
@@ -22,30 +23,6 @@
                 historicalRates: {},
 
                 width: "100%",
-
-                chartOptions: {
-                    title: {text: "График за последние 10 дней"},
-
-                    yAxis: {
-                        title: {
-                            text: '',
-                        },
-                    },
-
-                    xAxis: {
-                        min: 0,
-                        max: 10,
-
-                        labels: {
-                            step: 1,
-                        },
-
-                        tickWidth: 1,
-                        tickInterval: 1,
-                    },
-
-                    series: [],
-                }
             }
         },
 
@@ -120,7 +97,7 @@
                 if (series[0]) series[0].title = { text: this.sourceCode }
                 if (series[1]) series[1].title = { text: this.targetCode }
 
-                this.chartOptions.series = series
+                this.chartSeries = series
             },
 
             updateSourceValue(event) {
@@ -170,8 +147,12 @@
         </div>
     </div>
 
-    <Highcharts :options="chartOptions" class="chart" />
+    <CurrencyChart title="График за последние 10 дней" :series="chartSeries" />
 </template>
+
+<style>
+    @import "vue-select/dist/vue-select.css";
+</style>
 
 <style scoped>
     .currency-converter {
